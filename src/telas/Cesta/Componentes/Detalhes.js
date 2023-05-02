@@ -1,30 +1,19 @@
-import { Image, StyleSheet, Dimensions, Text, View } from 'react-native';
-import topo from '../../assets/topo.png';
-import logo from '../../assets/logo.png';
-import React from 'react';
-import Texto from '../componentes/Texto';
+import React from 'react'; 
+import { View, Image, StyleSheet, Dimensions, Text } from 'react-native';
+import Texto from '../../../componentes/Texto'
 
 // obter o tamanho da tela (largura)
 const width = Dimensions.get('screen').width;
 
-export default function Cesta(){
+export default function Detalhes({nome, logoFazenda, nomeFazenda, descricao, preco}){
     return <>
-        <Image source={topo} style={estilos.topo}/>
-        <Texto style={estilos.titulo}>Detalhes da Cesta</Texto>
-        <View style={estilos.cesta}>
-            <Text style={estilos.nome}>Cesta de Verduras</Text>
+        <Text style={estilos.nome}>{nome}</Text>
             <View style={estilos.fazenda}>
-                {/* armazenar o nome da fazenda e a imagem */}
-                <Image source={logo} style={estilos.imagemFazenda}/>
-                <Texto style={estilos.nomeFazenda}>Jenny Jack Farm</Texto>
+                <Image source={logoFazenda} style={estilos.imagemFazenda}/>
+                <Texto style={estilos.nomeFazenda}>{nomeFazenda}</Texto>
             </View>
-            <Texto style={estilos.descricao}>
-                Uma cesta com produtos selecionados 
-                cuidadosamente da fazenda direto para 
-                sua cozinha. 
-            </Texto>
-            <Texto style={estilos.preco}>R$ 40,00</Texto>
-        </View>
+            <Texto style={estilos.descricao}>{descricao}</Texto>
+            <Texto style={estilos.preco}>{preco}</Texto>
     </>
 }
 
@@ -44,10 +33,6 @@ const estilos = StyleSheet.create({
         fontWeight: 'bold',
         padding: 16
     }, 
-    cesta : {
-        paddingVertical: 8, 
-        paddingHorizontal: 16
-    },
     nome: {
         fontSize: 26, 
         color: "#464646", 
