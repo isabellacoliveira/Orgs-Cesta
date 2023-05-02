@@ -2,6 +2,7 @@ import { Image, StyleSheet, Dimensions, Text, View } from 'react-native';
 import topo from '../../assets/topo.png';
 import logo from '../../assets/logo.png';
 import React from 'react';
+import Texto from '../componentes/Texto';
 
 // obter o tamanho da tela (largura)
 const width = Dimensions.get('screen').width;
@@ -9,20 +10,20 @@ const width = Dimensions.get('screen').width;
 export default function Cesta(){
     return <>
         <Image source={topo} style={estilos.topo}/>
-        <Text style={estilos.titulo}>Detalhes da Cesta</Text>
+        <Texto style={estilos.titulo}>Detalhes da Cesta</Texto>
         <View style={estilos.cesta}>
             <Text style={estilos.nome}>Cesta de Verduras</Text>
             <View style={estilos.fazenda}>
                 {/* armazenar o nome da fazenda e a imagem */}
                 <Image source={logo} style={estilos.imagemFazenda}/>
-                <Text style={estilos.nomeFazenda}>Jenny Jack Farm</Text>
+                <Texto style={estilos.nomeFazenda}>Jenny Jack Farm</Texto>
             </View>
-            <Text style={estilos.descricao}>
+            <Texto style={estilos.descricao}>
                 Uma cesta com produtos selecionados 
                 cuidadosamente da fazenda direto para 
                 sua cozinha. 
-            </Text>
-            <Text style={estilos.preco}>R$ 40,00</Text>
+            </Texto>
+            <Texto style={estilos.preco}>R$ 40,00</Texto>
         </View>
     </>
 }
@@ -30,10 +31,7 @@ export default function Cesta(){
 const estilos = StyleSheet.create({
     topo: {
         width: "100%",
-        // não podemos fixar a altura na tela 
         height: 578 / 768 * width, 
-        // essa fonte só é padrão no google fontes 
-        // podemos instalar fontes do google via expo 
         fontFamily: 'Montserrat'
     }, 
     titulo: {
@@ -47,18 +45,18 @@ const estilos = StyleSheet.create({
         padding: 16
     }, 
     cesta : {
-        // só existe no react native
         paddingVertical: 8, 
         paddingHorizontal: 16
     },
     nome: {
         fontSize: 26, 
         color: "#464646", 
-        fontWeight: 'bold',
-        lineHeight: 42
+        lineHeight: 42,
+        // não precisamos colocar fontWeight bold pois o normal dela já é bold
+        fontFamily: "MontserratBold", 
+        fontWeight: 'bold'
     }, 
     fazenda: {
-        // por padrão no react native o flex direction vem como column 
         flexDirection: 'row', 
         paddingVertical: 12
     },
@@ -69,7 +67,8 @@ const estilos = StyleSheet.create({
     nomeFazenda: {
         fontSize: 16, 
         lineHeight: 26, 
-        marginLeft: 12
+        marginLeft: 12,
+        fontFamily: "MontserratRegular"
     }, 
     descricao: {
         color: "#a3a3a3",
