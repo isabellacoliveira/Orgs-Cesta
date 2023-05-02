@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, SafeAreaView, View } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import React from 'react';
 // colocando o nome do arquivo como index, o react native vai identificar o arquivo que esta dentro dessa pasta 
 import Cesta from './src/telas/Cesta/index';
@@ -21,7 +21,8 @@ export default function App() {
 
   // safeAreaView no ios cria uma margem por fora 
   return (
-    <SafeAreaView>
+    // o tamanho do flex sempre será o tamanho da tela inteira 
+    <SafeAreaView style={{flex: 1}}>
       <StatusBar />
       {/* fazer isso é a mesma coisa que fazer topo={mock.topo} e etc */}
       <Cesta {...mock}/>
@@ -29,11 +30,3 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

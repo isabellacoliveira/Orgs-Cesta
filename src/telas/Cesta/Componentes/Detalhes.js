@@ -1,11 +1,11 @@
 import React from 'react'; 
-import { View, Image, StyleSheet, Dimensions, Text } from 'react-native';
+import { View, Image, StyleSheet, Dimensions, Text, TouchableOpacity } from 'react-native';
 import Texto from '../../../componentes/Texto'
 
 // obter o tamanho da tela (largura)
 const width = Dimensions.get('screen').width;
 
-export default function Detalhes({nome, logoFazenda, nomeFazenda, descricao, preco}){
+export default function Detalhes({nome, logoFazenda, nomeFazenda, descricao, preco, botao}){
     return <>
         <Text style={estilos.nome}>{nome}</Text>
             <View style={estilos.fazenda}>
@@ -14,6 +14,12 @@ export default function Detalhes({nome, logoFazenda, nomeFazenda, descricao, pre
             </View>
             <Texto style={estilos.descricao}>{descricao}</Texto>
             <Texto style={estilos.preco}>{preco}</Texto>
+
+            <TouchableOpacity style={estilos.botao} onPress={() => {}}>
+                <Texto style={estilos.textoBotao}>
+                    {botao}
+                </Texto>
+            </TouchableOpacity>
     </>
 }
 
@@ -66,5 +72,18 @@ const estilos = StyleSheet.create({
         fontSize: 26, 
         lineHeight: 42, 
         marginTop: 8
+    },
+    botao: {
+        marginTop: 16, 
+        backgroundColor: '#2a9f85',
+        paddingVertical: 16,
+        borderRadius: 6
+    }, 
+    textoBotao: {
+        textAlign: 'center', 
+        color: '#ffffff', 
+        fontSize: 16, 
+        lineHeight: 26, 
+        fontWeight: 'bold'
     }
 })
